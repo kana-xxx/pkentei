@@ -1,0 +1,128 @@
+
+
+/* -----------
+pallet color 
+--------------*/
+$palette-navy: #2C5B8A;
+$palette-lightNavy: #4B719A;
+
+$palette-gray: #F1F4F9;
+$palette-blackGray: #73777F;
+$palette-darkGray:#C3C7CF;
+$palette-sandGray: #F7F7F7;
+$palette-lightGray: #FCFCFC;
+$palette-cloudGray:#DFE2EB;
+$palette-mediumGray: #C3C3C3;
+
+$palette-blue: #A0CAFD;
+$palette-skyBlue: #D9EAFE;
+$palette-cloudBlue: #F1F7FF;
+$palette-lightBlue: #E3EFFF;
+
+$palette-green: #31D9AF;
+$palette-lightGreen: #D6F7EF;
+
+$palette-red:#E6312D;
+$palette-lightRed:#FAD6D5;
+
+$palette-black:#3B4043;
+$palette-lightBack: #777B83;
+
+$palette-orange: #FF8E1F;
+
+$palette-white: #FFF;
+
+
+/* -----------
+colors 
+--------------*/
+
+$color-backgroundColor: $palette-cloudBlue;
+$color-wrap: $palette-white;
+$color-primaryButton: $palette-lightNavy;
+$color-disabledButton: $palette-darkGray;
+$color-errorMessage: $palette-red;
+
+
+/*ーーーーーーーーーーーーー
+
+button link 
+ーーーーーーーーーーーーーー*/
+
+/* カテゴリーボタン */
+$bg-categoryDeselect: $palette-gray;
+$bg-categorySelect: $palette-skyBlue;
+
+$font-categorySelect: $palette-navy;
+
+
+/* Primary button */
+$bg-primaryButton:$palette-navy;
+$font-primaryButton: $palette-white;
+
+
+/* Secondary button */
+$bg-secondaryButton:$palette-white;
+$font-secondaryButton: $palette-navy;
+$border-SecondaryButton: $palette-navy;
+
+$bgHover-secondaryButton: $palette-lightBlue;
+
+
+/* font-color */
+$font-normalFont: $palette-black;
+$font-grayText: $palette-blackGray;
+$font-passed: $palette-orange;
+$font-fail: $palette-navy;
+
+
+
+/* exam-page */
+/* title border */
+$border-exam: $palette-cloudGray;
+
+/* choices  */
+$bg-examChoice:$palette-lightBlue;
+$border-examChoice: saturate($palette-navy, 40%);
+
+$bg-examNormal: $palette-lightGray;
+$border-examNormal:$palette-cloudGray;
+
+$bg-examHover: $palette-lightBlue;
+
+$font-number:$palette-navy;
+
+
+/* ラジオボタン */
+$radioBorder-noChoice: $palette-darkGray;
+$radioBg-noChoice: $palette-white;
+
+$radioBorder-Choice: $palette-navy;
+$radioBg-Choice: $palette-white;
+$radioCheck-Choice: $palette-navy;
+
+
+/* quiz-option color */
+$bg-correct: $palette-green;
+$bg-incorrect: $palette-red;
+
+
+/* contact form */
+$bg-Required:$palette-orange;
+$border-contactForm :$palette-cloudGray;
+$border-error: $palette-red;
+$bg-error: $palette-lightRed;
+$color-placeholder: $palette-mediumGray;
+
+$shadow-focus: $palette-blue;
+$bg-valid: $palette-skyBlue;
+
+/* profile box */
+$border-userProfile: $palette-cloudGray;
+$font-hoverUserName: $palette-lightNavy;
+$font-hoverLogout:$palette-lightNavy;
+
+/* リンク */
+$font-link:$palette-navy;
+
+

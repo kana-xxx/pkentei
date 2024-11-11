@@ -1,0 +1,92 @@
+<div class="contentBox">
+    <div class="contentBox__pageTitleWrapper form">
+        <p class="contentBox__pageTitleWrapper--text">受講データを申請</p>
+        <p>受講データ申請の内容を下記より、入力してください。</p>
+    </div>
+
+
+
+    <div class="wrapper wrapperForm">
+
+        <div class="form__input__content">
+
+        <p class="form__input__content--text">受講データ申請の情報を入力してください</p>
+        <div class="Form-Item fadein">
+            <p class="Form-Item-Label">受講データ申請をするカテゴリーを選択してください<span class="Form-Item-Label-Required">必須</span>
+       </p>
+
+       [radio radio-919 use_label_element default:1 "基礎知識" "委託契約書" "マニフェスト" "分析" "ケーススタディ" "その他" "処理会社向け"]
+        </div>
+
+
+        <div class="Form-Item fadein">
+            <p class="Form-Item-Label">
+                データの取得期間<span class="Form-Item-Label-Required">必須</span>
+                </p>
+<div class="Form-Item-flex">
+           [date* date-255 class:Form-Item-Input herf] ~ [date* date-256 class:Form-Item-Input herf]</div>
+        </div>
+       
+        <div class="Form-Item fadein">
+            <p class="Form-Item-Label">部署<span class="Form-Item-Label-Required">必須</span>
+      </p>
+[text* department class:Form-Item-Input placeholder "部署"]
+        </div>
+        </div>
+
+
+
+
+        <div class="form__input__content">
+            <p class="form__input__content--text">申請者の情報を入力してください</p>
+            <span>（変更がある場合は、内容を修正してください）</span></p>
+
+       
+            <div class="Form-Item fadein">
+                <p class="Form-Item-Label">ユーザー名
+               </p>
+               [text* user-name class:Form-Item-Input default:user_login]
+                </div>
+
+                       
+        <div class="Form-Item fadein">
+            <p class="Form-Item-Label">名<br />
+               </p>
+               [text* first-name class:Form-Item-Input default:first_name]
+                </div>
+
+                       
+        <div class="Form-Item fadein">
+            <p class="Form-Item-Label">姓 <br />
+               </p>
+               [text* last-name class:Form-Item-Input default:last_name]
+                </div>
+
+                       
+        <div class="Form-Item fadein">
+            <p class="Form-Item-Label">メールアドレス 
+               </p>
+               [email* user-email class:Form-Item-Input default:user_mail]
+                </div>
+        </div>
+
+[submit class:buttonPrimary "送信する"]
+   </div> </div>
+</div>
+
+
+
+
+<div class="contentBox">
+    <div class="contentBox__pageTitleWrapper form">
+        <p class="contentBox__pageTitleWrapper--text">受講データを申請</p>
+        <p>受講データ申請を受け付けました</p>
+</div>
+ <div class="content__thanks">
+<img class="content__thanks--img" src="/img/success-check.svg" alt="チェックマーク">
+<p class="content__thanks--text">数日以内に、受講データをお送りさせていただきます。</p>
+
+<div class="buttonPrimary">トップページへ戻る</div>
+</div>
+    </div>
+

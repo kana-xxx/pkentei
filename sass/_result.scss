@@ -1,0 +1,286 @@
+@use "mixin";
+@use "color";
+@use "variable";
+
+
+
+
+/* ---------------
+
+トップに戻るボタン
+
+-------------------*/
+
+.backBtn {
+    @include mixin.PrimeButton(3.25rem);
+
+    &:hover {
+        opacity: .6;
+    }
+}
+
+
+/* -------------------
+
+解答と解説
+
+----------------------*/
+
+
+/* wrapper */
+
+.qmn_question_answer {
+    @include mixin.wrapper;
+    padding: 2.1rem 4rem 3rem !important;
+
+}
+
+.qsm-results-page .qmn_question_answer.qsm-add-border-bottom{
+    border-bottom: none !important;
+}
+
+/* 解説の選択肢レイアウト */
+.mlw_qmn_question {
+
+    .qsm-text-wrong-option,
+    .qsm-text-simple-option,
+    .qsm-text-correct-option {
+        @include mixin.optionAnswer;
+        padding-left: 60px !important;
+
+        
+    
+
+    }
+
+/* 選択していない選択肢 */
+
+    .qsm-text-simple-option {
+        &::before {
+            @include mixin.radioBtn;
+            margin-left: 2rem;
+            top: 32% !important;
+            left: 0  !important;
+
+        }
+    }
+
+    /* 正解の選択肢 */
+
+    .qsm-text-correct-option {
+        background: rgba(color.$bg-correct, 0.2);
+        border-color: rgba(color.$bg-correct, 0.2);
+
+        &::before {
+            @include mixin.correctIncorrect; 
+            background: url('https://test-prime-college-certification.com/wordpress/wp-content/themes/prime-test-sec/img/correct-check.svg')no-repeat !important;
+        }
+    }
+
+
+    /* 間違いの選択肢 */
+    .qsm-text-wrong-option {
+        background: rgba(color.$bg-incorrect, 0.2);
+        border-color: rgba(color.$bg-incorrect, 0.2);
+
+         &::before {
+            @include mixin.correctIncorrect; 
+            background: url('https://test-prime-college-certification.com/wordpress/wp-content/themes/prime-test-sec/img/incorrect.svg')no-repeat !important;
+        }
+    }
+
+}
+
+
+
+
+/* -----------------
+
+ 解説のタイトル
+-----------------------*/
+
+.wrapper__explanationBox {
+    
+    &__title {
+        font-size: variable.$font-mediumSize;
+        font-weight: bold;
+        margin-bottom: .5rem;
+    }
+
+}
+
+
+
+
+    /* ------------
+    result page wrapper 
+    -----------------*/
+
+
+
+.wrapper.wrapperResult {
+    /* 結果表示のコンテンツレイアウト */
+    @include mixin.resultWrapper;
+
+
+    /* 合格時の背景 */
+    &.passed {
+            background: linear-gradient(to bottom, transparent 0%, transparent 70%, #FFF 70%, #FFF 100%),
+            url('https://test-prime-college-certification.com/wordpress/wp-content/themes/prime-test-sec/img/bg-passed.svg') no-repeat;
+            background-size: cover;
+            background-color: #FFF;
+    }
+
+        /* 合格時の背景 */
+        &.fail {
+            background: linear-gradient(to bottom, #CFE5FE 0%, #CFE5FE 70%, #FFF 70%, #FFF 100%);
+    }
+}
+
+
+    .wrapper__resultBox {
+
+     /* 合格・不合格テキストとイラスト */
+        &__mainContent {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 2.25rem;
+
+            &__mainImg{
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                
+                /* 合格のイラスト */
+                &.passed::before {
+                    content: '';
+                    background: url(https://test-prime-college-certification.com/wordpress/wp-content/themes/prime-test-sec/img/gold-medal.svg) no-repeat;
+                    display: block;
+                    width: 7.2rem;
+                    height: 7.2rem;
+                    background-size: contain;
+                    
+                }
+
+                 /* 不合格のイラスト */
+                &.fail::before {
+                    content: '';
+                    background: url(https://test-prime-college-certification.com/wordpress/wp-content/themes/prime-test-sec/img/rainyday.svg) no-repeat;
+                    display: block;
+                    width: 7.4rem;
+                    height: 7.4rem;
+                    background-size: contain;
+                    
+                }
+            }
+
+
+            &__mainTitle {
+                font-size: 1.5rem;
+                font-weight: bold;
+                position: relative;
+                text-align: center;
+                
+
+                /*合格テキスト　オレンジ */
+                &--result-txt {
+                    &.passed {
+                        color: color.$font-passed;
+                        font-size: variable.$font-resultMainTxt;
+                    }
+
+                /*不合格テキスト　ブルー */
+                    &.fail {
+                        color: color.$font-fail;
+                        font-size: variable.$font-resultMainTxt;
+                    }
+                    
+                }
+
+               
+            }
+
+
+        }
+    
+
+    /* 結果の詳細 */
+    &__resultDetail  {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        column-gap: .8rem;
+        margin-bottom: 2.5rem;
+
+        &__flexBox {
+
+            @include mixin.categoryResultBox;
+
+
+            /* 結果詳細のカテゴリーボックス */
+            &:first-child {
+                min-width: 20rem;
+            }
+
+            /* 結果詳細の点数と問題数ボックス */
+            &:nth-child(n + 2) {
+                    min-width: 10rem;
+            }
+         
+
+            &--category {
+                font-size: variable.$font-regularSize;
+                font-weight: bold;
+                line-height: 1.5;
+            }
+
+
+            &--categoryResult {
+
+                font-weight: bold;
+                font-size: variable.$font-resultScore;
+                
+                .quizname  {
+                    font-size: variable.$font-resultExamTitle;
+                }
+
+                span {
+                    font-size:variable.$font-resultScoreSmall;
+                }
+
+
+            }
+
+           
+        }
+
+    }
+
+
+
+    /* 証明証ダウンロード */
+    &__certificate {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+
+        &--text {
+            width: 60%;
+        }
+
+    }
+    }
+
+// 照明証ダウンロードボタン
+    .qmn_certificate_link.active {
+        @include mixin.SecondaryButton;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        font-size: variable.$font-formLabel !important;
+        cursor: pointer;
+    }
+
+

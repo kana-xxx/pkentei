@@ -1,0 +1,86 @@
+
+@use "color";
+
+/* ---------
+margin & padding
+-------------*/
+$margin-content: 4.5rem 16rem 8rem;
+
+
+
+
+/* ---------
+title font 
+-------------*/
+
+/* page title */
+$font-mainPage: 1.8rem;
+
+/* main content title */
+$title-contentMain: 1.6rem;
+
+/* main content title */
+$font-examTitle:1.6rem;
+
+
+/* ---------
+ text font
+-------------*/
+/* regular （13px） */
+$font-smallSize: .8rem;
+
+/* regular （16px） */
+$font-regularSize: 1rem;
+
+/* medium (18px) */
+$font-mediumSize: 1.12rem;
+
+/* error message */
+$font-errorMessage: 1rem;
+
+
+/* login message (32px) */
+$font-loginMessage: 2rem;
+
+/* contact form wrapper title (20px) */
+$font-wrapperTitle: 1.12rem;
+
+
+/* form label (14px)*/
+$font-formLabel: .9rem;
+
+/* result score (28px) */
+$font-resultScore: 1.75rem;
+
+/* result score small (24px) */
+$font-resultScoreSmall: 1.6rem;
+
+
+/* result quiz name (22px) */
+$font-resultExamTitle: 1.4rem;
+
+
+/* result mainTxt(48px) */
+$font-resultMainTxt: 3rem;
+
+
+/* number font-size (44px) */
+$font-number: 2.7rem;
+/* -------------
+border-radius 
+------------------*/
+
+/* border-radius (regular) */ 
+$radius-regular: .6rem;
+
+/* button用 */
+$radius-buttonRegular: 1.8rem;
+
+
+
+
+
+/* --------------
+box-shadow 
+----------------*/
+$shadow-wrap:0 16px 30px -10px rgba(0,0,0,0.2);

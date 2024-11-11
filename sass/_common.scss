@@ -1,0 +1,236 @@
+@use "mixin";
+@use "color";
+@use "variable";
+
+/* px値をremに変換するために記述 */
+// html {
+//     font-size: calc(1vw * 100 / 1920);
+//   }
+
+  /* カンプが2pxの場合、そのままrem単位で記載でOK
+  a { font-size: 2rem; } */
+
+
+/* ---------
+body
+-------------*/
+body {
+    background: color.$color-backgroundColor;
+    color: color.$font-normalFont;
+    @include mixin.fontFamily;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+
+/* ---------
+img
+-------------*/
+img {
+    width: 100%;
+}
+
+
+
+/* ---------
+contentBox ~ wrap
+-------------*/
+.contentBox {
+    margin: variable.$margin-content;
+
+    /* トップページのタイトル */
+    &__pageTitleWrapper {
+
+        &--text {
+            font-size: variable.$font-mainPage;
+            color: color.$font-normalFont;
+            font-weight: 700;
+            line-height: 20px;
+            margin-bottom: 2rem;
+        }
+
+        /* contact form title */
+        &.form {
+            text-align: center;
+            margin-bottom: 2.6rem;
+
+            &--text {
+                margin-bottom: 1.7rem
+            }
+
+        }
+     
+    }
+
+
+}
+
+.wrapper {
+    @include mixin.wrapper;
+
+
+/* top page wrapper */
+
+    .wrapper--top {
+        padding: 3.8rem 0;
+    }
+    &__categoryBox__mainTitle {
+        @include mixin.mainTitle;
+            }
+
+    &__Request__mainTitle {
+        @include mixin.mainTitle;
+        margin-bottom: 2rem;
+    }
+
+
+    /* result page  */
+
+    .wrapperResult {
+        padding-left: 0;
+        padding-right: 0 
+    }
+
+
+      /* contact form page  */
+  &.wrapperForm {
+    padding-left: 9.3rem;
+    padding-right: 9.3rem; 
+    padding-top: 4.1rem;
+    padding-bottom: 5.1rem;
+  }
+
+}
+
+
+/* ------------------
+
+Primary buttonのCSS 
+
+-----------------------*/
+.buttonPrimary {
+    @include mixin.PrimeButton(3.25rem);
+
+    &:hover {
+        opacity: .6;
+    }
+}
+
+/* ---------------------
+
+Secondary button 
+
+-------------------------*/
+.buttonSecondary {
+    @include mixin.SecondaryButton;
+
+    &:hover {
+        background: color.$bgHover-secondaryButton;
+    }
+}
+
+
+
+/* ----------------------
+
+error message
+
+-------------------------*/
+.error-message {
+@include mixin.errorMessage;
+}
+
+
+
+
+
+/* ---------------------
+
+login page
+
+-----------------------*/
+
+.loginBox {
+    padding-top: 5rem;
+    padding-bottom: 10rem;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+
+
+
+    /* login mood-board */
+    &__moodBoard {
+        width: 50%;
+        height: 100%;
+      
+        &--text {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: color.$palette-navy;
+            font-size: variable.$font-loginMessage;
+            font-weight: bold;
+        }
+    }
+
+    /* login form */
+    &__loginForm {
+        width: 50%;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-left: 11rem;
+        padding-right: 11rem;
+
+
+
+        .qsm-login-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+
+        &--text {
+            font-size: variable.$font-wrapperTitle;
+            font-weight: bold;
+            margin-bottom: 3rem
+        }
+
+        &__item {
+            @include mixin.Form-Item;
+        }
+
+        &__form {
+            @include mixin.form;
+            min-width: 22rem;
+
+            &::placeholder {
+                color: color.$color-placeholder;
+            }
+        }
+
+    }
+
+
+    .loginForget--text {
+        font-size: variable.$font-smallSize;
+        margin-top: 1rem;
+
+        & a {
+            color: color.$font-link;
+            font-weight: bold;
+            text-decoration: underline;
+            transition: .3s ease opacity;
+
+            &:hover {
+                opacity: 0.6;
+            }
+        }
+    }
+
+}
+
+

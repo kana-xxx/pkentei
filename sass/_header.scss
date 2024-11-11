@@ -1,0 +1,178 @@
+@use "mixin";
+@use "color";
+@use "variable";    
+
+
+/* ---------
+header
+-------------*/
+
+
+.headerContent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 3rem;
+
+    &__link__logo{
+        width: 10rem;
+        height: 100%;
+        
+    } 
+    }
+
+/* ---------------
+
+ユーザ名の表示
+
+------------------*/ 
+.profileContent__nameBox{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    column-gap: .9rem;
+    cursor: pointer;
+    color: color.$font-grayText;
+    transition: .3s ease all;
+
+    &__imgBox {
+        width: 2.5rem;
+        height: 2.5rem;
+        background: color.$color-wrap;
+        border-radius: 50%;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+
+        &--icon {
+            padding: .6rem;
+        }
+        
+    }
+
+    &--userName {
+        font-weight: bold;
+        font-size: variable.$font-formLabel;
+        
+    }
+
+    &:hover {
+        color: color.$font-hoverUserName;
+    }
+}
+
+/* -------------
+
+profile modal
+
+---------------- */
+
+
+.profileContent__modal {
+    @include mixin.modal;
+    color: color.$font-grayText;
+
+    &.active {
+        display: block;
+    }
+
+    &--outer {
+        @include mixin.modalOuter;
+        padding: 1.4rem 2rem;
+        top: 15%;
+        right: 2%;
+    }
+
+/* ユーザーの名前表示 */
+    &__userInfo {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        column-gap: 1rem;
+        padding-bottom: 1rem;
+        padding-left: .3rem;
+        padding-right: .3rem;
+        border-bottom: solid 1px color.$border-userProfile;;
+
+        &__imgBox {
+            width: 1.75rem;
+            height: 1.75rem;
+            background: color.$color-wrap;
+
+            &--icon {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: .6rem;
+            }
+        }
+
+
+        /* モーダル内のユーザー名表示 */
+        &__nameContent  {
+
+            font-weight: bold;
+    
+            &--email {
+                
+            font-size: variable.$font-formLabel;
+            font-weight: normal;
+            line-height: 1.2;
+        }
+
+
+    }
+    }
+
+
+    /* ログアウトボタンのレイアウト */
+
+     &__logout {
+        margin-top: 1rem;
+        padding-left: .8rem;
+        font-weight: bold;
+        transition: .3s ease all;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        column-gap: 1rem;
+        cursor: pointer;
+
+        &.none {
+            display: none;
+        }
+
+    
+        &--text {
+            font-size: variable.$font-formLabel;
+            padding-bottom: .1rem;
+        }
+
+
+        &::before {
+            content: "";
+            display: block;
+            background: url('https://test-prime-college-certification.com/wordpress/wp-content/themes/prime-test-sec/img/icon-logout.svg')no-repeat;
+            background-size: contain;
+            width:1.2rem;
+            height: 1.2rem;
+            background-position: center;
+        }
+
+
+        &:hover {
+            color: color.$font-hoverLogout;
+
+            &::before {
+                content: "";
+                display: block;
+                background: url('https://test-prime-college-certification.com/wordpress/wp-content/themes/prime-test-sec/img/icon-hoverLogout.svg')no-repeat;
+                background-size: contain;
+                width:1.2rem;
+                height: 1.2rem;
+                background-position: center;
+            }
+        }
+
+     }
+
+
+}

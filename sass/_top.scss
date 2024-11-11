@@ -1,0 +1,176 @@
+@use "mixin";
+@use "color";
+@use "variable";
+
+/* クイズカテゴリー選択のCSS */
+
+input[name="selected_quizzes"] {
+	display: none;
+}
+
+/* ------------------
+
+カテゴリー選択
+
+-------------------*/
+.selected_category {
+    display: flex;
+    align-items: center;
+    width: 100%;
+	background-color: color.$bg-categoryDeselect;
+    border: solid 2px color.$bg-categoryDeselect;
+    border-radius: variable.$radius-regular;
+	cursor: pointer;
+	position: relative;
+    padding: 1.3rem 1.6rem;
+    transform: .4s ease all;
+    font-weight: 600;
+    color: color.$font-grayText;
+    font-size: 1.12rem;
+
+
+    &:hover {
+
+        border-color: color.$palette-skyBlue;
+        background: color.$palette-skyBlue;
+    }
+    /* カテゴリーボタンのinner */
+
+    &__inner {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        span {
+            padding-left: 1.1rem;
+        }
+        img {
+            width: 1.6rem;
+            opacity: 0;
+            transform: .3s ease all;
+          }
+      }
+
+
+      &:has(input:checked)  {
+        background-color: color.$bg-categorySelect;
+        color: color.$font-categorySelect;
+        border: solid 2px color.$palette-navy;
+      }
+
+      &:has(input:checked) img {
+        opacity: 1;
+      }
+
+
+  
+     
+}
+
+
+.wrapper__categoryBox__detail {
+    margin-bottom: 1.2rem;
+}
+.category_form {
+&__link {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: .8rem;
+
+
+}
+}
+
+
+
+/* ------------------
+
+注意事項
+
+-------------------*/
+.wrapper__cationBox {
+    margin: 3.6rem auto 0;
+    background: color.$palette-sandGray;
+    padding: 2.25rem  2rem;
+    border-radius: variable.$radius-regular;
+
+    &__title {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        column-gap: .6rem;
+
+
+        &--icon {
+            width: 2rem;
+            height: 2rem;
+        }
+
+        &--text {
+            font-size: 1.5rem;
+            font-weight: bold;
+
+            span {
+                font-size: variable.$font-regularSize;
+                font-weight: bold;
+            }
+        }
+    }
+
+
+    &__detail {
+
+        margin-top: .75rem;
+        text-align: left;
+
+        &--text {
+            padding-left: 1rem;
+            column-gap: .8rem;
+            font-size: variable.$font-regularSize;
+            line-height: 2;
+            position: relative;
+            height: 100%;
+            margin-bottom: 1rem;
+
+            p {
+                padding-left: 2rem;
+                font-size: .9rem;
+            }
+
+            span {
+                font-weight: bold;
+            }
+
+            &::before {
+                content: "";
+                background: url('https://test-prime-college-certification.com/wordpress/wp-content/themes/prime-test-sec/img/caution-check.svg')no-repeat;
+                width: 1rem;
+                height: 1rem;
+                background-size: contain;
+                background-position: center center;
+                padding-right: .6rem;
+                position: absolute;
+                top: 8%;
+                left: 2%;
+            }
+        }
+    }
+
+
+}
+
+
+
+/* --------------
+
+受講データ申請
+
+----------------- */
+.wrapper__Request__requestBox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0;
+}

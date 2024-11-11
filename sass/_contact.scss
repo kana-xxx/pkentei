@@ -1,0 +1,256 @@
+@use "mixin";
+@use "color";
+@use "variable";
+
+
+
+/* -----------------------
+
+コンタクトフォームのレイアウト
+
+---------------------------*/
+
+
+.Form {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 56rem;
+    margin-top: 2.2rem;
+}
+
+/* フォームのレイアウト */
+.Form-Item {
+@include mixin.Form-Item;
+}
+.Form-Item:last-child {
+    margin-bottom: 0;
+}
+
+/* フォーム項目 */
+.Form-Item-Label {
+    @include mixin.Form-Item-Label;
+}
+
+
+/* 必須ラベル */
+.Form-Item-Label-Required {
+    @include mixin.labelRequired;
+}
+
+/* フォームの本体 */
+.Form-Item-Input {
+    @include mixin.form;
+
+    &.herf {
+        width: 50%;
+    }
+
+    /* 未入力フォームの表示 */
+    &.wpcf7-not-valid {
+        box-shadow: 0 0 10px rgba(color.$border-error, 0.3) !important;
+        background: rgba(color.$bg-error, 0.2) !important;
+    }
+
+    &:focus {
+		box-shadow: 0 0 10px color.$shadow-focus;
+	}
+	&:valid {
+		background: color.$bg-valid;
+	}
+
+    &--date {
+        @include mixin.form;
+
+        &.wpcf7-not-valid {
+            box-shadow: 0 0 10px rgba(color.$border-error, 0.3)  !important;
+            margin-top: 1.5rem;
+            background: rgba(color.$bg-error, 0.2) !important;
+        }
+    }
+}
+
+.Form-Item-flex  {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    column-gap: .4rem;
+
+}
+
+
+
+.form__input__content {
+    margin-bottom: 2.5rem;
+
+    &:first-child::after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 1px;
+        background: #CDD6DD;
+        margin-bottom: 2.2rem;
+        margin-top: 3rem;
+        
+    }
+
+    &--text {
+        @include mixin.wrapperCenterTitle;
+
+        span {
+            @include mixin.wrapperCenterTitleSmall;
+        }
+    }
+
+}
+
+/* ラジオボタンを縦に並べる */
+.wpcf7-form-control.wpcf7-radio {
+    display: flex;
+    flex-direction: column;
+    row-gap: .6rem;
+}
+
+
+/* コンタクトフォームのラジオボタンを変更 */
+.wpcf7-form-control.wpcf7-radio .wpcf7-list-item {
+
+    margin-left: 0;
+
+    input[type="radio"] {
+        display: none;
+    }
+    &:first-child {
+        margin-top: .8rem;
+
+    }
+    &:last-child {
+        margin-bottom: 1rem;
+    }
+        
+        // &:hover {
+        //     background: color.$bg-examHover;
+        // }
+    
+        /* ラジオボタンのレイアウト */
+    
+    
+        label {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: .3s ease all;
+            padding-left: 2rem;
+            
+            &::before {
+                @include mixin.radioBtn;
+            }
+    
+          }
+    
+    
+        /* 選択時のレイアウト */
+    
+          &:has(input:checked)  {    
+    
+            label{
+                position: relative;
+                transition: .3s ease all;
+                &::before {
+                    content: "";
+                    background: color.$radioBg-Choice;
+                    border: 2px solid color.$radioBorder-Choice;
+        
+                }
+        
+                &::after {
+                    content: "";
+                    width: .7rem;
+                    height: .7rem;
+                    border-radius: 50%;
+                    margin-left: .25rem;
+                    background: color.$radioCheck-Choice;
+                    position: absolute;
+                    top: 50%;
+                    left: 0;
+                    transform: translateY(-50%);
+                    animation: anim-radio .5s linear;
+                }
+                
+                @keyframes anim-radio {
+                    0% {
+                        box-shadow: 0 0 0 1px transparent;
+                    }
+                    50% {
+                        box-shadow: 0 0 0 8px rgba(color.$radioCheck-Choice, 0.3);
+                    }
+                    100% {
+                        box-shadow: 0 0 0 8px transparent;
+                    }
+                }
+                
+            }
+            
+            
+          }
+      
+         
+    }
+
+
+    /* プレスフォルダーの色を変更 */
+    input.wpcf7-form-control::placeholder  {
+        color: color.$color-placeholder;
+    }
+
+
+/* エラーメッセージ調整 */
+.wpcf7-not-valid-tip {
+    margin-top: .5rem !important; 
+    color: color.$color-errorMessage !important;
+    font-weight: bold;
+    font-size: variable.$font-formLabel !important;
+}
+
+
+
+/*----------------------
+
+thanks page layout
+
+---------------------*/
+.content__thanks {
+    margin-top: 3rem;
+    text-align: center;
+
+    &--text {
+        text-align: center;
+        font-size: variable.$font-regularSize;
+        font-weight: normal;
+        line-height: 20px;
+    }
+
+    &--img {
+        width: 6.2rem;
+        height: auto;
+        margin-bottom: 1.5rem;
+    }
+
+    .buttonPrimary {
+        margin-top: 5.1rem;
+    }
+}
+
+
+
+
+.qsm-quiz-form .qmn_error input[type="text"] {
+    background: rgba(color.$bg-error, 0.2) !important;
+}
+
+
+.qsm-quiz-form .qmn_error:after {
+    content: "" !important;
+    display: none !important;
+}
+

@@ -1,0 +1,290 @@
+
+@use "mixin";
+@use "variable";
+@use "color";
+
+
+
+
+/* ---------------
+
+Exam-page Layout 
+
+---------------------*/
+
+
+/* 試験問題のタイトル */
+.contentBox__examTitleWrapper {
+
+	&::after {
+		@include mixin.titleBorder;
+		margin-bottom: 2rem;
+	}
+	&--text {
+		font-size: variable.$font-examTitle;
+		color: color.$font-normalFont;
+		font-weight: 700;
+		line-height: 20px;
+		margin-bottom: 1.3rem;
+	}
+ 
+	.answer-page {
+		margin-top: 3.7rem;
+	}
+}
+
+/* 試験問題のwrapper */
+.quiz_section.qsm-question-wrapper {
+@include mixin.wrapper;
+padding-top: 2.1rem;
+padding-bottom: 3rem;
+
+}
+
+/* 問題のタイトル */
+.quiz_section .mlw_qmn_new_question {
+font-size: 1rem;
+font-weight: normal !important;
+
+}
+
+/* 試験の選択問題 */
+.qmn_radio_answers input {
+	display: none;
+}
+.qmn_radio_answers.mlwRequiredRadio {
+margin-top: 1.1rem;
+}
+
+.quiz_section .qmn_mc_answer_wrap.mrq_checkbox_class {
+@include mixin.optionNormal;
+padding: 0;
+	
+	&:hover {
+        background: color.$bg-examHover;
+    }
+
+	&.timeUp {
+		background-color: #dfe2eb;
+
+		&:hover {
+			background-color: #dfe2eb;
+		}
+	}
+
+	/* ラジオボタンのレイアウト */
+
+
+	label {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		padding-left: 30px;
+		position: relative;
+		padding: 1rem 1rem .9rem 3rem;
+		
+		&::before {
+			@include mixin.radioBtn;
+			position: absolute !important;
+			margin-right: 1rem;
+			left: 2.5%;
+			top: 53%;
+			transform: translateY(-50%);
+		}
+
+	  }
+
+
+    /* 選択時のレイアウト */
+
+      &:has(input:checked)  {
+        background-color: color.$bg-examChoice;
+        border: solid 2px color.$border-examChoice;
+
+
+		label{
+			position: relative;
+			&::before {
+				content: "";
+				background: color.$radioBg-Choice;
+				border: 2px solid color.$radioBorder-Choice;
+	
+			}
+	
+			&::after {
+				content: "";
+				width: .7rem;
+				height: .7rem;
+				border-radius: 50%;
+				margin-left: .25rem;
+				background: color.$radioCheck-Choice;
+				position: absolute;
+				top: 53%;
+				left: 2.5%;
+				transform: translateY(-50%);
+
+			}
+		}
+		
+		
+      }
+
+
+
+
+  
+     
+}
+
+
+
+
+
+/* 試験問題CSS */
+
+.qmn_mc_answer_wrap.mrq_checkbox_class {
+	display: flex;
+	align-content: center;
+	justify-content: flex-start;
+	column-gap: 1rem;
+}
+.qsm-input-label {
+	line-height: 1.5rem;
+}
+
+
+
+	/* --------------
+
+試験の回答送信ボタン
+
+----------------*/
+.qmn_btn {
+	@include mixin.answerButton(3.75rem);
+}
+
+
+
+/* ---------------------
+
+試験前のコンタクトフォーム
+
+-----------------------*/
+.examContactForm__box {
+	@include mixin.wrapper;
+	padding-top: 2.1rem;
+	padding-bottom: 3rem;
+	padding-right: 7rem;
+	padding-left: 7rem;
+	margin: 0 auto 3.6rem;
+
+	&--text {
+		text-align: center;
+		@include mixin.wrapperCenterTitle;
+
+		span {
+			@include mixin.wrapperCenterTitleSmall;
+		}
+	}
+}
+
+.qsm_contact_div.qsm-contact-type-text {
+	@include mixin.Form-Item;
+}
+.mlw_qmn_question.qsm_question {
+	@include mixin.Form-Item-Label ;
+	display: flex !important;
+	align-items: center;
+	justify-content: flex-start;
+}
+.mlwRequiredText.qsm_required_text {
+	@include mixin.form;
+
+	&:focus {
+		box-shadow: 0 0 10px color.$shadow-focus;
+	}
+	&:valid {
+		background: color.$bg-valid;
+	}
+}
+
+
+
+/* -------------------------
+
+time upのポップアップ表示
+
+------------------------------*/
+.timerModal{
+    @include mixin.modal;
+	text-align: center;
+	background: rgba(0,0,0,0.25);
+
+	&.show {
+		display: block
+	}
+
+	&__modalOuter{
+        @include mixin.modalOuter;
+		width: 20rem;
+        padding: 2rem;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+	}
+
+	&__title {
+		font-size: variable.$font-mediumSize;
+		font-weight: bold;
+	}
+}
+
+
+.submit-the-form {
+	margin-left: 0 !important; 
+}
+
+.timeUpText__content {
+	margin: 0 auto;
+	padding: .5rem 4rem;
+	font-size: variable.$font-regularSize;
+	font-weight: normal;
+	word-break: break-all;
+}
+
+
+/* 	---------------
+
+試験問題のタイマー
+
+-------------------------*/
+
+
+.mlw_qmn_timer {
+	z-index: 999;
+	display: inline-block;
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	height: 50px;
+	line-height: 50px;
+	padding: 0 20px;
+	background: #34495e;
+	color: #fff;
+	-webkit-border-radius: 50px;
+	-moz-border-radius: 50px;
+	border-radius: 50px;
+	-webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, .10);
+	-moz-box-shadow: 0 4px 8px rgba(0, 0, 0, .10);
+	box-shadow: 0 4px 8px rgba(0, 0, 0, .10);
+  }
+
+
+
+//   /* ---------エラーメッセージ
+
+// -----------------*/
+
+#mlw_error_message {
+	color: red !important;
+}
